@@ -7,6 +7,10 @@
 # Web: https://www.ticarpi.com
 # Twitter: @ticarpi
 
+import sys
+import builtins
+builtins.exit = sys.exit
+
 jwttoolvers = "2.3.0"
 import ssl
 import sys
@@ -34,13 +38,13 @@ except:
     print("On most Linux systems you can run the following command to install:")
     print("python3 -m pip install pycryptodomex\n")
     exit(1)
-try:
-    from termcolor import cprint
-except:
-    print("WARNING: termcolor library is not imported - this is used to make the output clearer and oh so pretty")
-    print("On most Linux systems you can run the following command to install:")
-    print("python3 -m pip install termcolor\n")
-    exit(1)
+# try:
+#     from termcolor import cprint
+# except:
+#     print("WARNING: termcolor library is not imported - this is used to make the output clearer and oh so pretty")
+#     print("On most Linux systems you can run the following command to install:")
+#     print("python3 -m pip install termcolor\n")
+#     exit(1)
 try:
     import requests
     from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -60,7 +64,7 @@ DEFAULT_RATE_PERIOD = 60
 
 def cprintc(textval, colval):
     if not args.bare:
-        cprint(textval, colval)
+        print(textval)
 
 def createConfig():
     privKeyName = path+"/jwttool_custom_private_RSA.pem"

@@ -1,0 +1,12 @@
+[project]
+name = "jwt-tool"
+version = "2.3.0"
+description = "A toolkit for testing, tweaking and cracking JSON Web Tokens"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "nuitka>=2.8.10",
+    "pycryptodomex>=3.23.0",
+    "ratelimit>=2.2.1",
+    "requests>=2.32.5",
+]
