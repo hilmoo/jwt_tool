@@ -1917,11 +1917,15 @@ if __name__ == '__main__':
                         help="Query a token ID against the logfile to see the details of that request\ne.g. -Q jwttool_46820e62fe25c10a3f5498e426a9f03a")
     parser.add_argument("-v", "--verbose", action="store_true",
                         help="When parsing and printing, produce (slightly more) verbose output.")
+    parser.add_argument("-cp", "--custompath", action="store",
+                        help="Custom path to configuration and log files (overrides default ~/.jwt_tool)")
     args = parser.parse_args()
     if not args.bare:
         printLogo()
     try:
         path = os.path.expanduser("~/.jwt_tool")
+        if args.custompath:
+            path = args.custompath
         if not os.path.exists(path):
             os.makedirs(path)
     except:
