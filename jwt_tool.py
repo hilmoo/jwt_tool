@@ -1919,8 +1919,10 @@ if __name__ == '__main__':
                         help="When parsing and printing, produce (slightly more) verbose output.")
     parser.add_argument("-cp", "--custompath", action="store",
                         help="Custom path to configuration and log files (overrides default ~/.jwt_tool)")
+    parser.add_argument("-nb", "--nobanner", action="store_true",
+                        help="suppress banner/logo (for use in scripts)")
     args = parser.parse_args()
-    if not args.bare:
+    if not args.bare and not args.nobanner:
         printLogo()
     try:
         path = os.path.expanduser("~/.jwt_tool")
