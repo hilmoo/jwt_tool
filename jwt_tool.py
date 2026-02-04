@@ -1925,9 +1925,10 @@ if __name__ == '__main__':
     if not args.bare and not args.nobanner:
         printLogo()
     try:
-        path = os.path.expanduser("~/.jwt_tool")
         if args.custompath:
             path = args.custompath
+        else:
+            path = os.path.expanduser("~/.jwt_tool")
         if not os.path.exists(path):
             os.makedirs(path)
     except:
